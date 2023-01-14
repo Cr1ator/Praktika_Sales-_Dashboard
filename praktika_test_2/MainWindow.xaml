@@ -5,6 +5,10 @@
         Title="MainWindow" Height="780" Width="1280" AllowsTransparency="True"
         WindowStyle="None" WindowStartupLocation="CenterScreen"
         Background="Transparent">
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="boolToVisConv" />
+    </Window.Resources>
     <Border CornerRadius="25" Background="#F7F6F4" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -124,10 +128,37 @@
             </Border>
             
             <!--Search Section-->
-            <Border Grid.Column="1" Margin="20 0 20 20">
-                
+            <Border Grid.Column="1" Margin="20 0 20 20" Style="{StaticResource whiteBorder}">
+                <Grid>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Border Width="50" Height="50" CornerRadius="10" Margin="5 0 20 0">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                    <GradientStop Color="#FB7456" Offset="0" />
+                                    <GradientStop Color="#FA5654" Offset="1" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <Image Width="50" Height="50" Source="/Images/u4.png"/>
+                        </Border>
+
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock Text="Привет, команда" FontSize="26" FontWeight="Bold" Style="{StaticResource titleText}"/>
+                            <TextBlock Text="Хорошего дня" Foreground="#6C879A" Margin="0 3 0 0"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <!--Search Textbox-->
+                    <Grid Width="300" HorizontalAlignment="Right">
+                        <TextBlock Margin="15 0" VerticalAlignment="Center" Foreground="#868686" Panel.ZIndex="1"
+                                       Text="Поиск..." IsHitTestVisible="False"
+                                       Visibility="{Binding ElementName=textBoxSearch,Path=Text.IsEmpty, Converter={StaticResource boolToVisConv}}"/>
+
+                        <TextBox x:Name="textBoxSearch"/>
+
+                        <fa:IconBlock Icon="Search" Width="24" Height="24" FontSize="24" Foreground="#FF6D46" Margin="0 0 15 0"
+                                          HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    </Grid>
+                </Grid>
             </Border>
-            
         </Grid>
     </Border>
 </Window>

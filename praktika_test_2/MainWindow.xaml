@@ -152,7 +152,7 @@
                                        Text="Поиск..." IsHitTestVisible="False"
                                        Visibility="{Binding ElementName=textBoxSearch,Path=Text.IsEmpty, Converter={StaticResource boolToVisConv}}"/>
 
-                        <TextBox x:Name="textBoxSearch"/>
+                        <TextBox x:Name="textBoxSearch" Style="{StaticResource searchTextBox}"/>
 
                         <fa:IconBlock Icon="Search" Width="24" Height="24" FontSize="24" Foreground="#FF6D46" Margin="0 0 15 0"
                                           HorizontalAlignment="Right" VerticalAlignment="Center"/>

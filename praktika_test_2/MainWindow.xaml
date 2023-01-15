@@ -63,14 +63,14 @@
 
                     <Button Style="{StaticResource menuButton}" Background="#F7F6F4" Foreground="#FB7657">
                         <StackPanel Orientation="Horizontal">
-                            <fa:IconBlock Icon="Home" Margin="25 0 0 0" FontSize="18" Width="22" Height="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
+                            <fa:IconBlock Icon="Home" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
                             <TextBlock Text="Панель" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </Button>
 
                     <Button Style="{StaticResource menuButton}">
                         <StackPanel Orientation="Horizontal">
-                            <fa:IconBlock Icon="ClipboardList" Margin="25 0 0 0" FontSize="18" Width="22" Height="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
+                            <fa:IconBlock Icon="ClipboardList" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
                             <TextBlock Text="Cписок лидеров" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </Button>
@@ -78,28 +78,28 @@
 
                     <Button Style="{StaticResource menuButton}">
                         <StackPanel Orientation="Horizontal">
-                            <fa:IconBlock Icon="Paste" Margin="25 0 0 0" FontSize="18" Width="22" Height="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
+                            <fa:IconBlock Icon="Paste" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
                             <TextBlock Text="Сводная таблица" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </Button>
 
                     <Button Style="{StaticResource menuButton}">
                         <StackPanel Orientation="Horizontal">
-                            <fa:IconBlock Icon="UserCheck" Margin="25 0 0 0" FontSize="18" Width="22" Height="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
-                            <TextBlock Text="Аминистратор" Style="{StaticResource menuButtonText}"/>
+                            <fa:IconBlock Icon="UserCheck" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
+                            <TextBlock Text="Администратор" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </Button>
 
                     <Button Style="{StaticResource menuButton}">
                         <StackPanel Orientation="Horizontal">
-                            <fa:IconBlock Icon="BasketShopping" Margin="25 0 0 0" FontSize="18" Width="22" Height="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
+                            <fa:IconBlock Icon="BasketShopping" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
                             <TextBlock Text="Продажи" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </Button>
 
                     <Button Style="{StaticResource menuButton}">
                         <StackPanel Orientation="Horizontal">
-                            <fa:IconBlock Icon="Clock" Margin="25 0 0 0" FontSize="18" Width="22" Height="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
+                            <fa:IconBlock Icon="Clock" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
                             <TextBlock Text="Задачи" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </Button>
@@ -108,21 +108,21 @@
 
                     <Button Style="{StaticResource menuButton}">
                         <StackPanel Orientation="Horizontal">
-                            <fa:IconBlock Icon="Message" Margin="25 0 0 0" FontSize="18" Width="22" Height="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
+                            <fa:IconBlock Icon="Message" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
                             <TextBlock Text="Сообщения" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </Button>
 
                     <Button Style="{StaticResource menuButton}">
                         <StackPanel Orientation="Horizontal">
-                            <fa:IconBlock Icon="Gear" Margin="25 0 0 0" FontSize="18" Width="22" Height="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
+                            <fa:IconBlock Icon="Gear" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
                             <TextBlock Text="Настройки" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </Button>
 
                     <Button Style="{StaticResource menuButton}">
                         <StackPanel Orientation="Horizontal">
-                            <fa:IconBlock Icon="Phone" Margin="25 0 0 0" FontSize="18" Width="22" Height="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
+                            <fa:IconBlock Icon="Phone" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
                             <TextBlock Text="Задачи" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </Button>
@@ -170,16 +170,16 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <uc:InfoCard Grid.Column="0" Title="Sales" SubTitle="Compared To ($2464 Last Month)" Amount="3" Image="/Images/sale.png" />
-                <uc:InfoCard Grid.Column="1" Title="Purchase" SubTitle="Compared To ($1405 Last Month)" Amount="8" Image="/Images/purchase.png" />
-                <uc:InfoCard Grid.Column="2" Title="Return" SubTitle="Compared To ($3100 Last Month)" Amount="5" Image="/Images/return.png" />
+                <uc:InfoCard Grid.Column="0" Title="Продано" SubTitle="По сравнению с ($2464 прошлый месяц)" Amount="3" Image="/Images/sale.png" />
+                <uc:InfoCard Grid.Column="1" Title="Куплено" SubTitle="По сравнению с ($1405 прошлый месяц)" Amount="8" Image="/Images/purchase.png" />
+                <uc:InfoCard Grid.Column="2" Title="Возвращено" SubTitle="По сравнению с ($3100 прошлый месяц)" Amount="5" Image="/Images/return.png" />
             </Grid>
 
             <!--Main Chart-->
             <Border Grid.Column="1" Grid.Row="2" Style="{StaticResource whiteBorder}" Margin="20 20 20 0">
                 <Grid Margin="10 5">
                     <!--Title-->
-                    <TextBlock Text="Sales Figures" Style="{StaticResource titleText}"/>
+                    <TextBlock Text="Показатели продаж" Style="{StaticResource titleText}"/>
 
                     <!--Legends-->
                     <uc:Legends HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 8 10 0" />
@@ -239,6 +239,80 @@
                 </Grid>
             </Border>
 
+            <!--Right Section-->
+            <Grid Grid.Column="2" Grid.RowSpan="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!--Sales List-->
+                <Border Style="{StaticResource whiteBorder}">
+                    <StackPanel>
+                        <TextBlock Text="Cписок продаж" Style="{StaticResource titleText}"/>
+                        <TextBlock Text="Это данные о продажах с наибольшим доходом за этот месяц" TextWrapping="Wrap" Margin="0 10 0 10" Style="{StaticResource secondaryText}"/>
+
+                        <uc:UserCard Title="Реза Асади" IsActive="True" UpPrice="$1256" DownPrice="$337" Image="/Images/u1.png"/>
+                        <uc:UserCard Title="Болтовня Фирмана" UpPrice="$1049" DownPrice="$789" Image="/Images/u3.png"/>
+                        <uc:UserCard Title="Джон Доинг" UpPrice="$1105" DownPrice="$459" Image="/Images/u1.png"/>
+                    </StackPanel>
+                </Border>
+
+                <!--Sales Report-->
+                <Border Grid.Row="1" Style="{StaticResource whiteBorder}" Margin="0 20 0 0">
+                    <Grid>
+                        <!--Title-->
+                        <TextBlock Text="Отчет о продажах" Style="{StaticResource titleText}"/>
+
+                        <!--Chart-->
+                        <lvc:CartesianChart Grid.Row="1" Margin="0 40 0 30" LegendLocation="None">
+                            <lvc:CartesianChart.DataTooltip>
+                                <lvc:DefaultTooltip Background="#0074FF" Opacity="0.8" Foreground="#ffffff"/>
+                            </lvc:CartesianChart.DataTooltip>
+
+                            <lvc:CartesianChart.AxisX>
+                                <lvc:Axis Foreground="#90A3B2" ShowLabels="True">
+                                    <lvc:Axis.Separator>
+                                        <lvc:Separator StrokeThickness="0" Step="1"/>
+                                    </lvc:Axis.Separator>
+                                </lvc:Axis>
+                            </lvc:CartesianChart.AxisX>
+
+                            <lvc:CartesianChart.AxisY>
+                                <lvc:Axis MinValue="0" MaxValue="8" Foreground="#90A3B2" ShowLabels="True">
+                                    <lvc:Axis.Separator>
+                                        <lvc:Separator StrokeThickness="0" Step="2"/>
+                                    </lvc:Axis.Separator>
+                                </lvc:Axis>
+                            </lvc:CartesianChart.AxisY>
+
+                            <lvc:CartesianChart.Series>
+                                <lvc:ColumnSeries Values="6.5,3,6,5" MaxColumnWidth="10">
+                                    <lvc:ColumnSeries.Fill>
+                                        <LinearGradientBrush>
+                                            <GradientStop Color="#2889FC" Offset="0"/>
+                                            <GradientStop Color="#ffffff" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </lvc:ColumnSeries.Fill>
+                                </lvc:ColumnSeries>
+
+                                <lvc:ColumnSeries Values="7.5,5,4,5.5" MaxColumnWidth="10">
+                                    <lvc:ColumnSeries.Fill>
+                                        <LinearGradientBrush>
+                                            <GradientStop Color="#FF6F4D" Offset="0"/>
+                                            <GradientStop Color="#ffffff" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </lvc:ColumnSeries.Fill>
+                                </lvc:ColumnSeries>
+                            </lvc:CartesianChart.Series>
+                        </lvc:CartesianChart>
+
+                        <!--Legends-->
+                        <uc:Legends HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+
+                    </Grid>
+                </Border>
+            </Grid>
         </Grid>
     </Border>
 </Window>

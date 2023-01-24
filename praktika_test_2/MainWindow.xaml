@@ -4,12 +4,13 @@
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         xmlns:uc="clr-namespace:praktika_test_2.UserControls"
-        Title="MainWindow" Height="780" Width="1280" AllowsTransparency="True"
+        Title="ММЗ" Height="780" Width="1280" AllowsTransparency="True"
         WindowStyle="None" WindowStartupLocation="CenterScreen"
         Background="Transparent">
 
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="boolToVisConv" />
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
     </Window.Resources>
     <Border CornerRadius="25" Background="#F7F6F4" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
         <Grid>
@@ -21,7 +22,6 @@
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="120"/>
-                <RowDefinition Height="130"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             
@@ -29,162 +29,275 @@
             <Border Grid.RowSpan="3" CornerRadius="25">
                 <Border.Background>
                     <LinearGradientBrush>
-                        <GradientStop Color="#FB7154" Offset="0" />
-                        <GradientStop Color="#FB6161" Offset="0.8" />
+                        <GradientStop Color="#2247bf" Offset="0" />
+                        <GradientStop Color="#0c2985" Offset="0.8" />
                     </LinearGradientBrush>
                 </Border.Background>
 
-                <StackPanel>
-                    <!--Logo-->
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 30 0 10">
-                        <Grid>
-                            <Border Background="#FFF" Width="35" Height="35" CornerRadius="50"/>
-                            <Border Width="35" Height="35" BorderBrush="#FFF" BorderThickness="3" CornerRadius="50">
-                                <Border.Effect>
-                                    <DropShadowEffect BlurRadius="10" Opacity="0.3"/>
-                                </Border.Effect>
+                <DockPanel>
+                    <StackPanel DockPanel.Dock="Top">
+                        <!--Logo-->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 30 0 10">
+                            <Grid>
+                                <Border Background="#FFF" Width="35" Height="35" CornerRadius="50"/>
+                                <Border Width="35" Height="35" BorderBrush="#FFF" BorderThickness="3" CornerRadius="50">
+                                    <Border.Effect>
+                                        <DropShadowEffect BlurRadius="10" Opacity="0.3"/>
+                                    </Border.Effect>
 
-                                <!--Icon-->
-                                <fa:IconBlock Icon="PaperPlane" Foreground="#FB7154" FontSize="15" Height="15"  Width="18" VerticalAlignment="Center"
-                                              HorizontalAlignment="Center" Margin="0 0 2 0"/>
-                            </Border>
-                        </Grid>
+                                    <!--Icon-->
+                                    <fa:IconBlock Icon="M" Foreground="#2247bf" FontSize="15" Height="15"  Width="18" VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center" Margin="0 0 2 0"/>
+                                </Border>
+                            </Grid>
 
-                        <!--Title Text-->
-                        <TextBlock Text="Azmovl" Foreground="#FFF" FontSize="30" Margin="10 0 0 3">
-                            <TextBlock.Effect>
-                                <DropShadowEffect BlurRadius="10" Opacity="0.3" />
-                            </TextBlock.Effect>
-                        </TextBlock>
+                            <!--Title Text-->
+                            <TextBlock Text="ММЗ" Foreground="#FFF" FontSize="30" Margin="10 0 0 3">
+                                <TextBlock.Effect>
+                                    <DropShadowEffect BlurRadius="10" Opacity="0.3" />
+                                </TextBlock.Effect>
+                            </TextBlock>
+                        </StackPanel>
+
+                        <!--Menu Items-->
+                        <TextBlock Text="Меню" Style="{StaticResource menuTitle}" />
+
+                        <Button Style="{StaticResource menuButton}" Background="#F7F6F4" Foreground="#072485">
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconBlock Icon="Home" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
+                                <TextBlock Text="Панель" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource menuButton}">
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconBlock Icon="ClipboardList" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
+                                <TextBlock Text="Cписок лидеров" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </Button>
+
+
+                        <Button Style="{StaticResource menuButton}">
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconBlock Icon="Paste" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
+                                <TextBlock Text="Сводная таблица" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource menuButton}">
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconBlock Icon="UserCheck" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
+                                <TextBlock Text="Администратор" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource menuButton}">
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconBlock Icon="BasketShopping" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
+                                <TextBlock Text="Продажи" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource menuButton}">
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconBlock Icon="Clock" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
+                                <TextBlock Text="Задачи" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </Button>
+
+                        <TextBlock Text="Помощь" Style="{StaticResource menuTitle}" />
+
+                        <Button Style="{StaticResource menuButton}">
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconBlock Icon="Message" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
+                                <TextBlock Text="Сообщения" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource menuButton}">
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconBlock Icon="Gear" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
+                                <TextBlock Text="Настройки" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </Button>
+
                     </StackPanel>
 
-                    <!--Menu Items-->
-                    <TextBlock Text="Меню" Style="{StaticResource menuTitle}" />
-
-                    <Button Style="{StaticResource menuButton}" Background="#F7F6F4" Foreground="#FB7657">
+                    <Button Style="{StaticResource menuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 15 20">
                         <StackPanel Orientation="Horizontal">
-                            <fa:IconBlock Icon="Home" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
-                            <TextBlock Text="Панель" Style="{StaticResource menuButtonText}"/>
+                            <fa:IconBlock Icon="RightFromBracket" FontSize="16" Margin="25 2 20 0" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
+                            <TextBlock Text="Выйти" Height="17"/>
                         </StackPanel>
                     </Button>
+                </DockPanel>
 
-                    <Button Style="{StaticResource menuButton}">
-                        <StackPanel Orientation="Horizontal">
-                            <fa:IconBlock Icon="ClipboardList" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
-                            <TextBlock Text="Cписок лидеров" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </Button>
-
-
-                    <Button Style="{StaticResource menuButton}">
-                        <StackPanel Orientation="Horizontal">
-                            <fa:IconBlock Icon="Paste" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
-                            <TextBlock Text="Сводная таблица" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </Button>
-
-                    <Button Style="{StaticResource menuButton}">
-                        <StackPanel Orientation="Horizontal">
-                            <fa:IconBlock Icon="UserCheck" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
-                            <TextBlock Text="Администратор" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </Button>
-
-                    <Button Style="{StaticResource menuButton}">
-                        <StackPanel Orientation="Horizontal">
-                            <fa:IconBlock Icon="BasketShopping" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
-                            <TextBlock Text="Продажи" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </Button>
-
-                    <Button Style="{StaticResource menuButton}">
-                        <StackPanel Orientation="Horizontal">
-                            <fa:IconBlock Icon="Clock" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
-                            <TextBlock Text="Задачи" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </Button>
-
-                    <TextBlock Text="Помощь" Style="{StaticResource menuTitle}" />
-
-                    <Button Style="{StaticResource menuButton}">
-                        <StackPanel Orientation="Horizontal">
-                            <fa:IconBlock Icon="Message" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
-                            <TextBlock Text="Сообщения" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </Button>
-
-                    <Button Style="{StaticResource menuButton}">
-                        <StackPanel Orientation="Horizontal">
-                            <fa:IconBlock Icon="Gear" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
-                            <TextBlock Text="Настройки" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </Button>
-
-                    <Button Style="{StaticResource menuButton}">
-                        <StackPanel Orientation="Horizontal">
-                            <fa:IconBlock Icon="Phone" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
-                            <TextBlock Text="Задачи" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </Button>
-                </StackPanel>
             </Border>
             
             <!--Search Section-->
-            <Border Grid.Column="1" Margin="20 0 20 20" Style="{StaticResource whiteBorder}">
+            <Border Grid.Column="1" Grid.ColumnSpan="3" Margin="20 20 10 20" Style="{StaticResource whiteBorder}">
                 <Grid>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                        <Border Width="50" Height="50" CornerRadius="10" Margin="5 0 20 0">
-                            <Border.Background>
-                                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                                    <GradientStop Color="#FB7456" Offset="0" />
-                                    <GradientStop Color="#FA5654" Offset="1" />
-                                </LinearGradientBrush>
-                            </Border.Background>
-                            <Image Width="50" Height="50" Source="/Images/u4.png"/>
-                        </Border>
-
-                        <StackPanel VerticalAlignment="Center">
-                            <TextBlock Text="Привет, команда" FontSize="26" FontWeight="Bold" Style="{StaticResource titleText}"/>
-                            <TextBlock Text="Хорошего дня" Foreground="#6C879A" Margin="0 3 0 0"/>
-                        </StackPanel>
-                    </StackPanel>
+                    <TextBlock Text="Справочник договоров" Grid.Row="1" FontSize="26" VerticalAlignment="Center" FontWeight="SemiBold" Margin="0 0 0 0"
+                           HorizontalAlignment="Left" Foreground="#121518"/>
+                    
                     <!--Search Textbox-->
-                    <Grid Width="300" HorizontalAlignment="Right">
+                    <Grid Margin="90 0 0 0" Width="400" HorizontalAlignment="Center">
                         <TextBlock Margin="15 0" VerticalAlignment="Center" Foreground="#868686" Panel.ZIndex="1"
                                        Text="Поиск..." IsHitTestVisible="False"
                                        Visibility="{Binding ElementName=textBoxSearch,Path=Text.IsEmpty, Converter={StaticResource boolToVisConv}}"/>
 
                         <TextBox x:Name="textBoxSearch" Style="{StaticResource searchTextBox}"/>
 
-                        <fa:IconBlock Icon="Search" Width="24" Height="24" FontSize="24" Foreground="#FF6D46" Margin="0 0 15 0"
+                        <fa:IconBlock Icon="Search" Width="24" Height="24" FontSize="24" Foreground="#2247bf" Margin="0 0 15 0"
                                           HorizontalAlignment="Right" VerticalAlignment="Center"/>
                     </Grid>
+                    <!--Top Buttons-->
+                    <Button Style="{StaticResource topButton}" Margin="0 0 20 0" Background="#dcdcdc" HorizontalAlignment="Right">
+                        <fa:IconBlock Icon="Gear" VerticalAlignment="Center" FontSize="16"/>
+                    </Button>
+
+                    <Button Style="{StaticResource topButton}" Margin="0 0 55 0" HorizontalAlignment="Right">
+                        <fa:IconBlock Icon="Bell" VerticalAlignment="Center" FontSize="16"/>
+                    </Button>
                 </Grid>
             </Border>
 
-            <!--Info Cards-->
-            <Grid Grid.Column="1" Grid.Row="1" Margin="10 0 10 0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+            <!--Main Section-->
+            <Grid Grid.Column="1" Grid.Row="2" Margin="30 0 20 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
 
-                <uc:InfoCard Grid.Column="0" Title="Продано" SubTitle="По сравнению с ($2464 прошлый месяц)" Amount="3" Image="/Images/sale.png" />
-                <uc:InfoCard Grid.Column="1" Title="Куплено" SubTitle="По сравнению с ($1405 прошлый месяц)" Amount="8" Image="/Images/purchase.png" />
-                <uc:InfoCard Grid.Column="2" Title="Возвращено" SubTitle="По сравнению с ($3100 прошлый месяц)" Amount="5" Image="/Images/return.png" />
+                <!--Page Title-->
+                <TextBlock Text="Договоры" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 0 0 0"
+                           HorizontalAlignment="Left" Foreground="#121518"/>
+
+                <!--Add Button-->
+                <Button Style="{StaticResource addButton}" Click="AddAgreement_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:IconBlock Icon="Plus" VerticalAlignment="Center" Width="11" Height="11" Margin="0 1 8 0"/>
+                        <TextBlock Text="Добавить договор"/>
+                    </StackPanel>
+                </Button>
+
+                <!--Seprator-->
+                <Separator Height="1" Grid.Row="3" Background="#dae2ea" Margin="0 -1 0 10"/>
+
+                <!--Top Buttons-->
+                <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 10 0 0">
+                    <Button Content="Договоры" Style="{StaticResource tabButton}" BorderBrush="#784ff2"/>
+                    <Button Content="Исполнители" Style="{StaticResource tabButton}" Width="114"/>
+                    <Button Content="Архив" Style="{StaticResource tabButton}" Width="52"/>
+                </StackPanel>
+
+                <!--Counter Title-->
+                <TextBlock Text="68 Договоров" Grid.Row="4" FontSize="18" FontWeight="SemiBold"
+                           Foreground="#121518" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                <!--<TextBlock Text="Фильтер" Grid.Row="4" FontSize="13" FontWeight="SemiBold" Margin="0 0 215 0"
+                           Foreground="#121518" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                --><!--Filter Textbox--><!--
+                <Grid Width="200" HorizontalAlignment="Right" Grid.Row="4">
+                    <TextBlock Margin="15 0" VerticalAlignment="Center" Foreground="#b0b9c6" IsHitTestVisible="False"
+                               Panel.ZIndex="1" Text="Поиск договора"
+                               Visibility="{Binding ElementName=txtFilter, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}"/>
+
+                    <TextBox x:Name="txtFilter" Style="{StaticResource textboxFilter}"/>
+                </Grid>-->
+
+                <!--Members Datagrid-->
+                <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="membersDataGrid">
+                    <DataGrid.Columns>
+                        <DataGridCheckBoxColumn CanUserResize="False" Width="auto" ElementStyle="{StaticResource CheckBoxStyle1}">
+                            <DataGridCheckBoxColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <CheckBox Style="{DynamicResource CheckBoxStyle1}" />
+                                </DataTemplate>
+                            </DataGridCheckBoxColumn.HeaderTemplate>
+                        </DataGridCheckBoxColumn>
+
+                        <DataGridTextColumn Header="#" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding Number}"/>
+
+                        <DataGridTemplateColumn Header="Наименование" IsReadOnly="True" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Name}" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTextColumn Header="N дог." IsReadOnly="True" Width="*" Binding="{Binding Position}"/>
+                        <DataGridTextColumn Header="Сложный номер" IsReadOnly="True" Width="*" Binding="{Binding Email}"/>
+                        <DataGridTextColumn Header="N Счёта" IsReadOnly="True" Width="*" Binding="{Binding Phone}"/>
+
+                        <DataGridTemplateColumn Header="Код УНН" IsReadOnly="True" Width="auto">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Style="{StaticResource gridEditButton}">
+                                            <Button.Content>
+                                                <fa:IconBlock Icon="Pencil" Width="16" Height="16" VerticalAlignment="Center"/>
+                                            </Button.Content>
+                                        </Button>
+                                        <Button Style="{StaticResource gridRemovetButton}" Margin="5 0 0 0">
+                                            <Button.Content>
+                                                <fa:IconBlock Icon="TrashCan" Width="16" Height="16" VerticalAlignment="Center"/>
+                                            </Button.Content>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <!--Pagination Section-->
+                <Border Grid.Row="6" HorizontalAlignment="Right" BorderBrush="#dee4ec" BorderThickness="1"
+                        CornerRadius="5" Padding="5" Background="White" Margin="0 10 10 10">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Style="{StaticResource pagingButton}">
+                            <fa:IconBlock Icon="CaretLeft" VerticalAlignment="Center" Width="14" Height="12"/>
+                        </Button>
+
+                        <Rectangle Width="1" Fill="#dee4ec" Margin="3 7"/>
+
+                        <Button Style="{StaticResource pagingButton}" Content="1"/>
+                        <Button Style="{StaticResource pagingButton}" Content="2" Background="#2247bf" Foreground="#ffffff"/>
+                        <Button Style="{StaticResource pagingButton}" Content="3"/>
+
+                        <TextBlock Text="..." Foreground="#6c7682" VerticalAlignment="Center" FontSize="15" Margin="10 0"/>
+
+                        <Button Style="{StaticResource pagingButton}" Content="7"/>
+                        <Button Style="{StaticResource pagingButton}" Content="8"/>
+                        <Button Style="{StaticResource pagingButton}" Content="9"/>
+
+                        <Rectangle Width="1" Fill="#dee4ec" Margin="3 7"/>
+                        <Button Style="{StaticResource pagingButton}">
+                            <fa:IconBlock Icon="CaretRight" VerticalAlignment="Center" Width="14" Height="12"/>
+                        </Button>
+
+                    </StackPanel>
+                </Border>
+
             </Grid>
-
-            <!--Main Chart-->
-            <Border Grid.Column="1" Grid.Row="2" Style="{StaticResource whiteBorder}" Margin="20 20 20 0">
+            <!--<Border Grid.Column="1" Grid.Row="2" Style="{StaticResource whiteBorder}" Margin="20 20 20 0">
                 <Grid Margin="10 5">
-                    <!--Title-->
+                    --><!--Title--><!--
                     <TextBlock Text="Показатели продаж" Style="{StaticResource titleText}"/>
 
-                    <!--Legends-->
+                    --><!--Legends--><!--
                     <uc:Legends HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 8 10 0" />
 
-                    <!--Chart-->
+                    --><!--Chart--><!--
                     <lvc:CartesianChart Grid.Row="1" Margin="5 40 0 60" LegendLocation="None">
                         <lvc:CartesianChart.DataTooltip>
                             <lvc:DefaultTooltip Background="Red" Foreground="#ffffff" Opacity="0.7" BulletSize="10">
@@ -229,37 +342,39 @@
                         </lvc:CartesianChart.Series>
                     </lvc:CartesianChart>
 
-                    <!--Note Text-->
+                    --><!--Note Text--><!--
                     <Grid VerticalAlignment="Bottom" Margin="10 0">
-                        <!--<Icon:PackIconMaterial Kind="Information" Foreground="#F96654"/>-->
+                        --><!--<Icon:PackIconMaterial Kind="Information" Foreground="#F96654"/>--><!--
                         <TextBlock TextWrapping="Wrap" Margin="30 0 0 0" LineHeight="18" Foreground="{StaticResource GreyColor}"
                                    Text="Чистые продажи, указанные в отчете о прибылях и убытках, используются для расчета этого коэффициента возврата, и возмещение должно быть вычтено из общего объема продаж, чтобы действительно измерить способность активов фирмы генерировать продажи."/>
                     </Grid>
 
                 </Grid>
-            </Border>
+            </Border>-->
 
             <!--Right Section-->
             <Grid Grid.Column="2" Grid.RowSpan="3">
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="120"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
                 <!--Sales List-->
-                <Border Style="{StaticResource whiteBorder}">
+                <Border Grid.Row="1" Style="{StaticResource whiteBorder}" Margin="0 20 10 0">
                     <StackPanel>
+
                         <TextBlock Text="Cписок продаж" Style="{StaticResource titleText}"/>
                         <TextBlock Text="Это данные о продажах с наибольшим доходом за этот месяц" TextWrapping="Wrap" Margin="0 10 0 10" Style="{StaticResource secondaryText}"/>
 
-                        <uc:UserCard Title="Реза Асади" IsActive="True" UpPrice="$1256" DownPrice="$337" Image="/Images/u1.png"/>
+                        <uc:UserCard Title="Дмитрий Дощечко" IsActive="True" UpPrice="$1256" DownPrice="$337" Image="/Images/u1.png"/>
                         <uc:UserCard Title="Болтовня Фирмана" UpPrice="$1049" DownPrice="$789" Image="/Images/u3.png"/>
                         <uc:UserCard Title="Джон Доинг" UpPrice="$1105" DownPrice="$459" Image="/Images/u1.png"/>
                     </StackPanel>
                 </Border>
 
                 <!--Sales Report-->
-                <Border Grid.Row="1" Style="{StaticResource whiteBorder}" Margin="0 20 0 0">
+                <Border Grid.Row="2" Style="{StaticResource whiteBorder}" Margin="0 20 10 0">
                     <Grid>
                         <!--Title-->
                         <TextBlock Text="Отчет о продажах" Style="{StaticResource titleText}"/>
@@ -299,7 +414,7 @@
                                 <lvc:ColumnSeries Values="7.5,5,4,5.5" MaxColumnWidth="10">
                                     <lvc:ColumnSeries.Fill>
                                         <LinearGradientBrush>
-                                            <GradientStop Color="#FF6F4D" Offset="0"/>
+                                            <GradientStop Color="#2247bf" Offset="0"/>
                                             <GradientStop Color="#ffffff" Offset="1"/>
                                         </LinearGradientBrush>
                                     </lvc:ColumnSeries.Fill>

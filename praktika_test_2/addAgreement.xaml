@@ -19,20 +19,21 @@
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
         <Style TargetType="DatePicker" x:Key="RoundedDatePicker">
             <Setter Property="Background" Value="#FFF" />
-            <Setter Property="Foreground" Value="#384756" />
+            <Setter Property="Foreground" Value="#868686" />
             <Setter Property="BorderThickness" Value="1" />
             <Setter Property="BorderBrush" Value="#E1E6EB" />
             <Setter Property="FontSize" Value="13" />
             <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="Template">
+            <Setter Property="Padding" Value="10" />
+            <!--<Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type DatePicker}">
                         <Border x:Name="border" CornerRadius="5" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" SnapsToDevicePixels="True">
-                            <DatePicker Foreground="#868686" VerticalAlignment="Center" BorderBrush="{x:Null}" x:Name="PART_ContentHost" />
+                            <DatePicker x:Name="Datepickerff" Foreground="#868686" VerticalAlignment="Center" BorderBrush="{x:Null}" />
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
-            </Setter>
+            </Setter>-->
         </Style>
         <Style TargetType="ComboBox" x:Key="RoundedComboBox">
             <Setter Property="Background" Value="#FFF" />
@@ -69,10 +70,10 @@
                 <StackPanel>
                     <TextBlock Text="Добавление договора" Foreground="White" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2" FontSize="20" FontWeight="SemiBold" Margin="30 0 0 0"
                            HorizontalAlignment="Left"/>
-                    <Button  Grid.Row="0" Grid.Column="5" Style="{StaticResource topButton}" Margin="0 -30 23 0" VerticalAlignment="Center" HorizontalAlignment="Right">
+                    <Button  Grid.Row="0" Grid.Column="5" Style="{StaticResource topButton}" Click="CancelAgreement_Click" Margin="0 -30 23 0" VerticalAlignment="Center" HorizontalAlignment="Right">
                         <fa:IconBlock Icon="Xmark" Foreground="White" VerticalAlignment="Center" FontSize="26"/>
                     </Button>
-                    <Button  Grid.Row="0" Grid.Column="5" Style="{StaticResource topButton}" Margin="0 -30 55 0" VerticalAlignment="Center" HorizontalAlignment="Right">
+                    <Button  Grid.Row="0" Grid.Column="5" Style="{StaticResource topButton}" Click="hideAgreement_Click" Margin="0 -30 55 0" VerticalAlignment="Center" HorizontalAlignment="Right">
                         <fa:IconBlock Icon="Minus" Foreground="White" VerticalAlignment="Center" FontSize="26"/>
                     </Button>
                 </StackPanel>
@@ -115,42 +116,39 @@
             <TextBox Grid.Row="1" Grid.Column="4" Margin="20,0,20,0" VerticalAlignment="Center"/>-->
             
             <!--Inputs-->
-            <uc:MyTextBox Margin="20 0 0 0" Grid.Column="0" Grid.Row="1" Caption="Legal Name of Business" Hint="Код контрагента"/>
-            <uc:MyTextBox Grid.Column="1" Grid.Row="1" Caption="Notification Email" Hint="№ договора"/>
+            <uc:MyTextBox Margin="20 0 0 0" Grid.Column="0" Grid.Row="1" x:Name="CodeAgreement" Caption="Legal Name of Business" Hint="Код контрагента"/>
+            <uc:MyTextBox Grid.Column="1" Grid.Row="1" x:Name="NumberAgreement" Caption="Notification Email" Hint="№ договора"/>
             <!--<uc:MyTextBox Grid.Column="2" Grid.Row="1" Caption="Phone" Hint="Дата договора"/>-->
             <!--<uc:MyTextBox Grid.Column="3" Grid.Row="1" Caption="Address (Line 1)" Hint="Срок действия"/>
             <uc:MyTextBox Grid.Column="4" Grid.Row="1" Caption="Business Name" Hint="Дата заврешения"/>-->
             <StackPanel Margin="10 10" Grid.Column="2" Grid.Row="1">
-                <DatePicker Style="{StaticResource RoundedDatePicker}"
-            Height="40" />
+                <DatePicker x:Name="DateAgreement" Style="{StaticResource RoundedDatePicker}" Height="40" />
             </StackPanel>
             <StackPanel Margin="10 10" Grid.Column="3" Grid.Row="1">
-                <DatePicker Style="{StaticResource RoundedDatePicker}"
-            Height="40" />
+                <DatePicker x:Name="DateSrokAgreement" Style="{StaticResource RoundedDatePicker}" Height="40" />
             </StackPanel>
             <StackPanel Margin="10 10" Grid.Column="4" Grid.Row="1">
-                <DatePicker Margin="0 0 20 0" Style="{StaticResource RoundedDatePicker}"
-                Height="40" />
+                <DatePicker x:Name="DateEndAgreement" Margin="0 0 20 0" Style="{StaticResource RoundedDatePicker}" Height="40" />
             </StackPanel>
             <!--Inputs 2-->
-            <uc:MyTextBox Margin="20 0 0 0" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Caption="Notification Email" Hint="Наименование контрагента"/>
-            <uc:MyTextBox Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2" Width="230" HorizontalAlignment="Left" Caption="Notification Email" Hint="Страна"/>
-            <uc:MyTextBox Margin="0 0 20 0" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="2" Width="230" HorizontalAlignment="Right" Caption="Notification Email" Hint="Область"/>
+            <uc:MyTextBox x:Name="NameAgreement" Margin="20 0 0 0" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Caption="Notification Email" Hint="Наименование контрагента"/>
+            <uc:MyTextBox x:Name="CountryAgreement" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2" Width="230" HorizontalAlignment="Left" Caption="Notification Email" Hint="Страна"/>
+            <uc:MyTextBox x:Name="AreaAgreement" Margin="0 0 20 0" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="2" Width="230" HorizontalAlignment="Right" Caption="Notification Email" Hint="Область"/>
             <!--Inputs 3-->
-            <uc:MyTextBox Margin="20 0 0 0" Grid.Column="0" Grid.Row="3" Caption="Legal Name of Business" Hint="Тип договора"/>
-            <uc:MyTextBox Grid.Column="1" Grid.Row="3" Caption="Notification Email" Hint="Отношения"/>
-            <uc:MyTextBox Grid.Column="2" Grid.Row="3" Caption="Notification Email" Hint="Статус ММЗ"/>
-            <uc:MyTextBox Margin="0 0 20 0" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="3" Caption="Notification Email" Hint="Статус Контрагента"/>
+            <uc:MyTextBox x:Name="TypeAgreement" Margin="20 0 0 0" Grid.Column="0" Grid.Row="3" Caption="Legal Name of Business" Hint="Тип договора"/>
+            <uc:MyTextBox x:Name="RelationshipsAgreement" Grid.Column="1" Grid.Row="3" Caption="Notification Email" Hint="Отношения"/>
+            <uc:MyTextBox x:Name="StatusMMZAgreement" Grid.Column="2" Grid.Row="3" Caption="Notification Email" Hint="Статус ММЗ"/>
+            <uc:MyTextBox x:Name="StatusAgreement" Margin="0 0 20 0" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="3" Caption="Notification Email" Hint="Статус Контрагента"/>
             <!--Inputs 4-->
-            <uc:MyTextBox Margin="20 0 0 0" Grid.Column="0" Grid.Row="4" Caption="Legal Name of Business" Hint="Сумма договора"/>
-            <uc:MyTextBox Grid.Column="1" Grid.Row="4" Caption="Notification Email" Hint="Кол-во"/>
-            <uc:MyTextBox Grid.Column="2" Grid.Row="4" Caption="Notification Email" Hint="Сумма трансп.расх"/>
-            <uc:MyTextBox Margin="0 0 20 0" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="4" Caption="Notification Email" Hint="Полученная продукция"/>
+            <uc:MyTextBox x:Name="SumAgreement" Margin="20 0 0 0" Grid.Column="0" Grid.Row="4" Caption="Legal Name of Business" Hint="Сумма договора"/>
+            <uc:MyTextBox x:Name="CountsAgreement" Grid.Column="1" Grid.Row="4" Caption="Notification Email" Hint="Кол-во"/>
+            <uc:MyTextBox x:Name="SumTransAgreement" Grid.Column="2" Grid.Row="4" Caption="Notification Email" Hint="Сумма трансп.расх"/>
+            <uc:MyTextBox x:Name="NameProduct" Margin="0 0 20 0" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="4" Caption="Notification Email" Hint="Полученная продукция"/>
             <!--Inputs 5-->
-            <uc:MyTextBox Margin="20 0 0 0" Grid.Column="0" Grid.Row="5" Caption="Legal Name of Business" Hint="Вид оплаты"/>
-            <uc:MyTextBox Grid.Column="1" Grid.Row="5" Caption="Notification Email" Hint="Срок оплаты"/>
-            <uc:MyTextBox Grid.Column="2" Grid.Row="5" Caption="Notification Email" Hint="Дни"/>
-            <uc:MyTextBox Margin="0 0 20 0" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="5" Caption="Notification Email" Hint="Срок откгрузки"/>
+            <uc:MyTextBox x:Name="TypePayement" Margin="20 0 0 0" Grid.Column="0" Grid.Row="5" Caption="Legal Name of Business" Hint="Вид оплаты"/>
+            <uc:MyTextBox x:Name="DatePayement" Grid.Column="1" Grid.Row="5" Caption="Notification Email" Hint="Срок оплаты"/>
+            <uc:MyTextBox x:Name="DayAgreement" Grid.Column="2" Grid.Row="5" Caption="Notification Email" Hint="Дни"/>
+            <uc:MyTextBox x:Name="DateOfShipment" Margin="0 0 20 0" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="5" Caption="Notification Email" Hint="Срок откгрузки"/>
             <!--Seprator-->
             <Separator Height="1" Grid.Row="6" Grid.ColumnSpan="6" Background="#dae2ea" Margin="0 -50 0 10"/>
             <!--Buttons 5-->

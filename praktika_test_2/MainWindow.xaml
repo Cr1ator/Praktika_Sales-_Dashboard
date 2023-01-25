@@ -162,7 +162,7 @@
             </Border>
 
             <!--Main Section-->
-            <Grid Grid.Column="1" Grid.Row="2" Margin="30 0 20 0">
+            <Grid Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Margin="30 0 20 0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
@@ -191,7 +191,7 @@
                 <!--Top Buttons-->
                 <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 10 0 0">
                     <Button Content="Договоры" Style="{StaticResource tabButton}" BorderBrush="#784ff2"/>
-                    <Button Content="Исполнители" Style="{StaticResource tabButton}" Width="114"/>
+                    <!--<Button Content="Исполнители" Style="{StaticResource tabButton}" Width="114"/>-->
                     <Button Content="Архив" Style="{StaticResource tabButton}" Width="52"/>
                 </StackPanel>
 
@@ -212,7 +212,7 @@
                 </Grid>-->
 
                 <!--Members Datagrid-->
-                <DataGrid Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="membersDataGrid">
+                <DataGrid HorizontalScrollBarVisibility="Auto" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="membersDataGrid" SelectionChanged="membersDataGrid_SelectionChanged">
                     <DataGrid.Columns>
                         <DataGridCheckBoxColumn CanUserResize="False" Width="auto" ElementStyle="{StaticResource CheckBoxStyle1}">
                             <DataGridCheckBoxColumn.HeaderTemplate>
@@ -222,23 +222,39 @@
                             </DataGridCheckBoxColumn.HeaderTemplate>
                         </DataGridCheckBoxColumn>
 
-                        <DataGridTextColumn Header="#" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding Number}"/>
+                        <DataGridTextColumn Header="Код контрагента" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding codeAgreement}"/>
 
-                        <DataGridTemplateColumn Header="Наименование" IsReadOnly="True" Width="*">
+                        <!--<DataGridTemplateColumn Header="Наименование" IsReadOnly="True" Width="auto">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="{Binding Name}" VerticalAlignment="Center"/>
+                                        <TextBlock Text="{Binding codeAgreement}" VerticalAlignment="Center"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
+                        </DataGridTemplateColumn>-->
 
-                        <DataGridTextColumn Header="N дог." IsReadOnly="True" Width="*" Binding="{Binding Position}"/>
-                        <DataGridTextColumn Header="Сложный номер" IsReadOnly="True" Width="*" Binding="{Binding Email}"/>
-                        <DataGridTextColumn Header="N Счёта" IsReadOnly="True" Width="*" Binding="{Binding Phone}"/>
+                        <DataGridTextColumn Header="N дог." IsReadOnly="True" Width="auto" Binding="{Binding numberAgreement}"/>
+                        <DataGridTextColumn Header="Дата договора" IsReadOnly="True" Width="120" Binding="{Binding dateAgreement, StringFormat=dd-mm-yyyy}"/>
+                        <DataGridTextColumn Header="Срок действия" IsReadOnly="True" Width="120" Binding="{Binding dateSrokAgreement, StringFormat=dd-mm-yyyy}"/>
+                        <DataGridTextColumn Header="Дата завершения" IsReadOnly="True" Width="130" Binding="{Binding dateEndAgreement, StringFormat=dd-mm-yyyy}"/>
+                        <DataGridTextColumn Header="Наименование контрагента" IsReadOnly="True" Width="auto" Binding="{Binding nameAgreement}"/>
+                        <DataGridTextColumn Header="Страна" IsReadOnly="True" Width="auto" Binding="{Binding countryAgreement}"/>
+                        <DataGridTextColumn Header="Область" IsReadOnly="True" Width="auto" Binding="{Binding areaAgreement}"/>
+                        <DataGridTextColumn Header="Тип договора" IsReadOnly="True" Width="auto" Binding="{Binding typeAgreement}"/>
+                        <DataGridTextColumn Header="Отношения" IsReadOnly="True" Width="auto" Binding="{Binding relationshipsAgreement}"/>
+                        <DataGridTextColumn Header="Статус ММЗ" IsReadOnly="True" Width="auto" Binding="{Binding statusMMZAgreement}"/>
+                        <DataGridTextColumn Header="Статус Контрагента" IsReadOnly="True" Width="auto" Binding="{Binding statusAgreement}"/>
+                        <DataGridTextColumn Header="Сумма договора" IsReadOnly="True" Width="auto" Binding="{Binding sumAgreement}"/>
+                        <DataGridTextColumn Header="Кол-во" IsReadOnly="True" Width="auto" Binding="{Binding countsAgreement}"/>
+                        <DataGridTextColumn Header="Сумма трансп.расх" IsReadOnly="True" Width="auto" Binding="{Binding sumTransAgreement}"/>
+                        <DataGridTextColumn Header="Полученная продукция" IsReadOnly="True" Width="auto" Binding="{Binding nameProduct}"/>
+                        <DataGridTextColumn Header="Вид оплаты" IsReadOnly="True" Width="auto" Binding="{Binding typePayement}"/>
+                        <DataGridTextColumn Header="Срок оплаты" IsReadOnly="True" Width="auto" Binding="{Binding dayDatePayement}"/>
+                        <DataGridTextColumn Header="Дни" IsReadOnly="True" Width="auto" Binding="{Binding dayAgreement}"/>
+                        <DataGridTextColumn Header="Срок откгрузки" IsReadOnly="True" Width="auto" Binding="{Binding dayDateOfShipment}"/>
 
-                        <DataGridTemplateColumn Header="Код УНН" IsReadOnly="True" Width="auto">
+                        <DataGridTemplateColumn Header="Операции" IsReadOnly="True" Width="auto">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
@@ -247,7 +263,7 @@
                                                 <fa:IconBlock Icon="Pencil" Width="16" Height="16" VerticalAlignment="Center"/>
                                             </Button.Content>
                                         </Button>
-                                        <Button Style="{StaticResource gridRemovetButton}" Margin="5 0 0 0">
+                                        <Button Style="{StaticResource gridRemovetButton}" Click="DeleteAgreement_Click" Margin="5 0 0 0">
                                             <Button.Content>
                                                 <fa:IconBlock Icon="TrashCan" Width="16" Height="16" VerticalAlignment="Center"/>
                                             </Button.Content>
@@ -353,14 +369,14 @@
             </Border>-->
 
             <!--Right Section-->
-            <Grid Grid.Column="2" Grid.RowSpan="3">
+            <!--<Grid Grid.Column="2" Grid.RowSpan="3">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="120"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <!--Sales List-->
+                --><!--Sales List--><!--
                 <Border Grid.Row="1" Style="{StaticResource whiteBorder}" Margin="0 20 10 0">
                     <StackPanel>
 
@@ -373,13 +389,13 @@
                     </StackPanel>
                 </Border>
 
-                <!--Sales Report-->
+                --><!--Sales Report--><!--
                 <Border Grid.Row="2" Style="{StaticResource whiteBorder}" Margin="0 20 10 0">
                     <Grid>
-                        <!--Title-->
+                        --><!--Title--><!--
                         <TextBlock Text="Отчет о продажах" Style="{StaticResource titleText}"/>
 
-                        <!--Chart-->
+                        --><!--Chart--><!--
                         <lvc:CartesianChart Grid.Row="1" Margin="0 40 0 30" LegendLocation="None">
                             <lvc:CartesianChart.DataTooltip>
                                 <lvc:DefaultTooltip Background="#0074FF" Opacity="0.8" Foreground="#ffffff"/>
@@ -422,12 +438,12 @@
                             </lvc:CartesianChart.Series>
                         </lvc:CartesianChart>
 
-                        <!--Legends-->
+                        --><!--Legends--><!--
                         <uc:Legends HorizontalAlignment="Center" VerticalAlignment="Bottom" />
 
                     </Grid>
                 </Border>
-            </Grid>
+            </Grid>-->
         </Grid>
     </Border>
 </Window>

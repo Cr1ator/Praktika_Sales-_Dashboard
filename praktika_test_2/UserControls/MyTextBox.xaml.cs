@@ -27,5 +27,13 @@ namespace praktika_test_2.UserControls
 
         public static readonly DependencyProperty CaptionProperty = DependencyProperty.Register("Caption", typeof(string), typeof(MyTextBox));
 
+        public string NameBox
+        {
+            get { return (string)GetValue(NameBoxProperty); }
+            set { SetValue(NameBoxProperty, value); }
+        }
+
+        public static readonly DependencyProperty NameBoxProperty = DependencyProperty.Register("NameBox", typeof(string), typeof(MyTextBox));
+
     }
 }

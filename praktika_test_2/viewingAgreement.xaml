@@ -1,0 +1,205 @@
+﻿<Window x:Class="praktika_test_2.viewingAgreement"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:praktika_test_2"
+        mc:Ignorable="d"
+        AllowsTransparency="True"
+         WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Title="Просмотр договора" 
+        Height="390" Width="800"
+        Background="Transparent">
+        <Border BorderThickness="3" BorderBrush="#2247bf" CornerRadius="25" Background="#F7F6F4" MouseDown="Border_MouseDown">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!--Page Title-->
+                <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" Background="#2247bf" CornerRadius="20 20 0 0">
+                    <StackPanel>
+                        <TextBlock Text="Просмотр договора" Foreground="White" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2" FontSize="20" FontWeight="SemiBold" Margin="30 0 0 0"
+                                       HorizontalAlignment="Left"/>
+                        <Button  Grid.Row="0" Grid.Column="5" Style="{StaticResource topButton}" Click="CancelAgreement_Click" Margin="0 -30 23 0" VerticalAlignment="Center" HorizontalAlignment="Right">
+                            <fa:IconBlock Icon="Xmark" Foreground="White" VerticalAlignment="Center" FontSize="26"/>
+                        </Button>
+                        <Button  Grid.Row="0" Grid.Column="5" Style="{StaticResource topButton}" Click="hideAgreement_Click" Margin="0 -30 55 0" VerticalAlignment="Center" HorizontalAlignment="Right">
+                            <fa:IconBlock Icon="Minus" Foreground="White" VerticalAlignment="Center" FontSize="26"/>
+                        </Button>
+                    </StackPanel>
+                </Border>
+                <!--Seprator-->
+                <Separator Height="1" Grid.Row="2" Grid.ColumnSpan="6" Background="#dae2ea" Margin="0 -50 0 10"/>
+
+                <StackPanel Margin="20 5 0 0" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left">
+                    <TextBlock Text="Код договора" Foreground="Black" FontSize="18" FontWeight="SemiBold" Margin="0 0 0 0"
+                                        HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="codeAgreement" Text="" Foreground="Black" FontSize="16" Margin="0 0 0 0"
+                                            HorizontalAlignment="Left"/>
+                </StackPanel>
+            <StackPanel Margin="0 5 0 0" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left">
+                    <TextBlock Text="№ договора" Foreground="Black" FontSize="18" FontWeight="SemiBold" Margin="0 0 0 0"
+                                            HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="numberAgreement" Text="" Foreground="Black" FontSize="16"  Margin="0 0 0 0"
+                                                HorizontalAlignment="Left"/>
+                </StackPanel>
+            <StackPanel Margin="0 5 0 0" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left">
+                    <TextBlock Text="Дата договора" Foreground="Black" FontSize="18" FontWeight="SemiBold" Margin="0 0 0 0"
+                                                HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="_dateAgreement" Text="" Foreground="Black" FontSize="16" Margin="0 0 0 0"
+                                                    HorizontalAlignment="Left"/>
+                </StackPanel>
+            <StackPanel Margin="10 5 0 0" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left">
+                    <TextBlock Text="Срок действия" Foreground="Black" FontSize="18" FontWeight="SemiBold" Margin="0 0 0 0"
+                                                    HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="_dateSrokAgreement" Text="" Foreground="Black" FontSize="16" FontWeight="SemiBold" Margin="0 0 0 0"
+                                                        HorizontalAlignment="Left"/>
+                </StackPanel>
+            <StackPanel Margin="0 5 0 0" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Left">
+                    <TextBlock Text="Дата завершения" Foreground="Black" FontSize="18" FontWeight="SemiBold" Margin="0 0 0 0"
+                                                        HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="_dateEndAgreement" Text="" Foreground="Black" FontSize="16"  Margin="0 0 0 0"
+                                                            HorizontalAlignment="Left"/>
+                </StackPanel>
+                <!--Seprator-->
+                <Separator Height="1" Grid.Row="1" Grid.ColumnSpan="6" Background="#dae2ea" Margin="0 -50 0 10"/>
+                <!--2 поля-->
+            <StackPanel Margin="20 5 20 0" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left">
+                    <TextBlock Text="Наименование контрагента" Foreground="Black" FontSize="18" FontWeight="SemiBold" Margin="0 0 0 0"
+                                            HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="nameAgreement" Text="" Foreground="Black" FontSize="16" Margin="0 0 0 0"
+                                                HorizontalAlignment="Left"/>
+                </StackPanel>
+            <StackPanel Margin="0 5 0 0" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Left">
+                    <TextBlock Text="Страна" Foreground="Black" FontSize="18" FontWeight="SemiBold" Margin="0 0 0 0"
+                                                HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="countryAgreement" Text="" Foreground="Black" FontSize="16" Margin="0 0 0 0"
+                                                    HorizontalAlignment="Left"/>
+                </StackPanel>
+            <StackPanel Margin="10 5 0 0" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Left">
+                    <TextBlock Text="Область" Foreground="Black" FontSize="18" FontWeight="SemiBold" Margin="0 0 0 0"
+                                                    HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="areaAgreement" Text="" Foreground="Black" FontSize="16" Margin="0 0 0 0"
+                                                        HorizontalAlignment="Left"/>
+                </StackPanel>
+                <!--Seprator-->
+                <Separator Height="1" Grid.Row="3" Grid.ColumnSpan="6" Background="#dae2ea" Margin="0 -50 0 10"/>
+                <!--Поля 3-->
+            <StackPanel Margin="20 5 0 0" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left">
+                    <TextBlock Text="Тип договора" Foreground="Black" FontSize="18" FontWeight="SemiBold" Margin="0 0 0 0"
+                                                        HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="typeAgreement" Text="" Foreground="Black" FontSize="16" Margin="0 0 0 0"
+                                                            HorizontalAlignment="Left"/>
+                </StackPanel>
+            <StackPanel Margin="0 5 0 0" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left">
+                    <TextBlock Text="Отношения" Foreground="Black" FontSize="18" FontWeight="SemiBold" Margin="0 0 0 0"
+                                                            HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="relationshipsAgreement" Text="" Foreground="Black" FontSize="16" Margin="0 0 0 0"
+                                                                HorizontalAlignment="Left"/>
+                </StackPanel>
+            <StackPanel Margin="0 5 0 0" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left">
+                    <TextBlock Text="Статус ММЗ" Foreground="Black" FontSize="18" FontWeight="SemiBold" Margin="0 0 0 0"
+                                                            HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="statusMMZAgreement" Text="" Foreground="Black" FontSize="16" Margin="0 0 0 0"
+                                                                HorizontalAlignment="Left"/>
+                </StackPanel>
+            <StackPanel Margin="10 5 0 0" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Left">
+                    <TextBlock Text="Статус Контрагента" Foreground="Black" FontSize="18" FontWeight="SemiBold" Margin="0 0 0 0"
+                                                                HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="statusAgreement" Text="" Foreground="Black" FontSize="16" Margin="0 0 0 0"
+                                                                    HorizontalAlignment="Left"/>
+                </StackPanel>
+                <!--Seprator-->
+                <Separator Height="1" Grid.Row="4" Grid.ColumnSpan="6" Background="#dae2ea" Margin="0 -50 0 10"/>
+                <!--Поля 4-->
+            <StackPanel Margin="20 5 0 0" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left">
+                    <TextBlock Text="Сумма договора" Foreground="Black" FontSize="17" FontWeight="SemiBold" Margin="0 0 0 0"
+                                                            HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="sumAgreement" Text="" Foreground="Black" FontSize="16" Margin="0 0 0 0"
+                                                                HorizontalAlignment="Left"/>
+                </StackPanel>
+            <StackPanel Margin="0 5 0 0" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left">
+                    <TextBlock Text="Кол-во" Foreground="Black" FontSize="18" FontWeight="SemiBold" Margin="0 0 0 0"
+                                                                HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="countsAgreement" Text="" Foreground="Black" FontSize="16" Margin="0 0 0 0"
+                                                                    HorizontalAlignment="Left"/>
+                </StackPanel>
+            <StackPanel Margin="0 5 0 0" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left">
+                    <TextBlock Text="Сумма трансп.расх" Foreground="Black" FontSize="18" FontWeight="SemiBold" Margin="0 0 0 0"
+                                                                HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="sumTransAgreement" Text="" Foreground="Black" FontSize="16" Margin="0 0 0 0"
+                                                                    HorizontalAlignment="Left"/>
+                </StackPanel>
+            <StackPanel Margin="10 5 0 0" Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Left">
+                    <TextBlock Text="Полученная продукция" Foreground="Black" FontSize="18" FontWeight="SemiBold" Margin="0 0 0 0"
+                                                                    HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="nameProduct" Text="" Foreground="Black" FontSize="16" Margin="0 0 0 0"
+                                                                        HorizontalAlignment="Left"/>
+                </StackPanel>
+                <!--Seprator-->
+                <Separator Height="1" Grid.Row="5" Grid.ColumnSpan="6" Background="#dae2ea" Margin="0 -50 0 10"/>
+                <!--Поля 5-->
+            <StackPanel Margin="20 5 0 0" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left">
+                    <TextBlock Text="Вид оплаты" Foreground="Black" FontSize="18" FontWeight="SemiBold" Margin="0 0 0 0"
+                                                                HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="typePayement" Text="" Foreground="Black" FontSize="16" Margin="0 0 0 0"
+                                                                    HorizontalAlignment="Left"/>
+                </StackPanel>
+            <StackPanel Margin="0 5 0 0" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left">
+                    <TextBlock Text="Срок оплаты" Foreground="Black" FontSize="18" FontWeight="SemiBold" Margin="0 0 0 0"
+                                                                    HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="dayDatePayement" Text="" Foreground="Black" FontSize="16" Margin="0 0 0 0"
+                                                                        HorizontalAlignment="Left"/>
+                </StackPanel>
+            <StackPanel Margin="0 5 0 0" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left">
+                    <TextBlock Text="Дни" Foreground="Black" FontSize="18" FontWeight="SemiBold" Margin="0 0 0 0"
+                                                                    HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="dayAgreement" Text="" Foreground="Black" FontSize="16" Margin="0 0 0 0"
+                                                                        HorizontalAlignment="Left"/>
+                </StackPanel>
+            <StackPanel Margin="10 5 0 0" Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Left">
+                    <TextBlock Text="Срок откгрузки" Foreground="Black" FontSize="18" FontWeight="SemiBold" Margin="0 0 0 0"
+                                                                        HorizontalAlignment="Left"/>
+                <TextBlock x:Name="dayDateOfShipment" Text="" Foreground="Black" FontSize="16" Margin="0 0 0 0"
+                                                                            HorizontalAlignment="Left"/>
+                </StackPanel>
+            <Separator Height="1" Grid.Row="6" Grid.ColumnSpan="6" Background="#dae2ea" Margin="0 -50 0 10"/>
+                <!--Buttons 5-->
+                <!--Test Button-->
+                <Button Margin="0 0 15 0" Background="#d32f2f" Foreground="White" BorderThickness="5"  BorderBrush="#e34d4d" Width="130" Grid.Column="3" Grid.Row="6" Style="{StaticResource addButton}" Click="DeleteAgreement_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Удалить"/>
+                    </StackPanel>
+                </Button>
+                <!--Add Button-->
+                <!--<Button Margin="0 0 15 0" Background="#7d7d7d" Foreground="White" BorderThickness="5"  BorderBrush="#e34d4d" Width="130" Grid.Column="3" Grid.Row="6" Style="{StaticResource addButton}" Click="CancelAgreement_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Выйти"/>
+                    </StackPanel>
+                </Button>-->
+                <!--Cancel Button-->
+                <Button Margin="0 0 30 0" Width="115" Grid.Column="4" Grid.Row="6" Style="{StaticResource addButton}" Click="RedactAgreement_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Редактировать"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
+        </Border>
+</Window>

@@ -62,14 +62,14 @@
                         <!--Menu Items-->
                         <TextBlock Text="Меню" Style="{StaticResource menuTitle}" />
 
-                        <Button Style="{StaticResource menuButton}" Background="#F7F6F4" Foreground="#072485">
+                        <Button Click="No_Click" Style="{StaticResource menuButton}" Background="#F7F6F4" Foreground="#072485">
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconBlock Icon="Home" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
                                 <TextBlock Text="Панель" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </Button>
 
-                        <Button Style="{StaticResource menuButton}">
+                        <Button Click="No_Click" Style="{StaticResource menuButton}">
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconBlock Icon="ClipboardList" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
                                 <TextBlock Text="Cписок лидеров" Style="{StaticResource menuButtonText}"/>
@@ -77,28 +77,28 @@
                         </Button>
 
 
-                        <Button Style="{StaticResource menuButton}">
+                        <Button Click="No_Click" Style="{StaticResource menuButton}">
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconBlock Icon="Paste" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
                                 <TextBlock Text="Сводная таблица" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </Button>
 
-                        <Button Style="{StaticResource menuButton}">
+                        <Button Click="No_Click" Style="{StaticResource menuButton}">
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconBlock Icon="UserCheck" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
                                 <TextBlock Text="Администратор" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </Button>
 
-                        <Button Style="{StaticResource menuButton}">
+                        <Button Click="No_Click" Style="{StaticResource menuButton}">
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconBlock Icon="BasketShopping" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
                                 <TextBlock Text="Продажи" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </Button>
 
-                        <Button Style="{StaticResource menuButton}">
+                        <Button Click="No_Click" Style="{StaticResource menuButton}">
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconBlock Icon="Clock" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
                                 <TextBlock Text="Задачи" Style="{StaticResource menuButtonText}"/>
@@ -107,14 +107,14 @@
 
                         <TextBlock Text="Помощь" Style="{StaticResource menuTitle}" />
 
-                        <Button Style="{StaticResource menuButton}">
+                        <Button Click="No_Click" Style="{StaticResource menuButton}">
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconBlock Icon="Message" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
                                 <TextBlock Text="Сообщения" Style="{StaticResource menuButtonText}"/>
                             </StackPanel>
                         </Button>
 
-                        <Button Style="{StaticResource menuButton}">
+                        <Button Click="No_Click" Style="{StaticResource menuButton}">
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconBlock Icon="Gear" Margin="25 0 0 0" FontSize="18" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
                                 <TextBlock Text="Настройки" Style="{StaticResource menuButtonText}"/>
@@ -123,7 +123,7 @@
 
                     </StackPanel>
 
-                    <Button Style="{StaticResource menuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 15 20">
+                    <Button Click="CancelAgreement_Click" Style="{StaticResource menuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 15 20">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconBlock Icon="RightFromBracket" FontSize="16" Margin="25 2 20 0" Foreground="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"/>
                             <TextBlock Text="Выйти" Height="17"/>
@@ -151,11 +151,11 @@
                                           HorizontalAlignment="Right" VerticalAlignment="Center"/>
                     </Grid>
                     <!--Top Buttons-->
-                    <Button Style="{StaticResource topButton}" Margin="0 0 20 0" Background="#dcdcdc" HorizontalAlignment="Right">
+                    <Button Click="No_Click" Style="{StaticResource topButton}" Margin="0 0 20 0" Background="#dcdcdc" HorizontalAlignment="Right">
                         <fa:IconBlock Icon="Gear" VerticalAlignment="Center" FontSize="16"/>
                     </Button>
 
-                    <Button Style="{StaticResource topButton}" Margin="0 0 55 0" HorizontalAlignment="Right">
+                    <Button Click="No_Click" Style="{StaticResource topButton}" Margin="0 0 55 0" HorizontalAlignment="Right">
                         <fa:IconBlock Icon="Bell" VerticalAlignment="Center" FontSize="16"/>
                     </Button>
                 </Grid>
@@ -192,7 +192,7 @@
                 <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 10 0 0">
                     <Button Content="Договоры" Style="{StaticResource tabButton}" BorderBrush="#784ff2"/>
                     <!--<Button Content="Исполнители" Style="{StaticResource tabButton}" Width="114"/>-->
-                    <Button Content="Архив" Style="{StaticResource tabButton}" Width="52"/>
+                    <Button Click="No_Click" Content="Архив" Style="{StaticResource tabButton}" Width="52"/>
                 </StackPanel>
 
                 <!--Counter Title-->
@@ -212,7 +212,7 @@
                 </Grid>-->
 
                 <!--Members Datagrid-->
-                <DataGrid HorizontalScrollBarVisibility="Auto" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="membersDataGrid" SelectionChanged="membersDataGrid_SelectionChanged">
+                <DataGrid MouseDoubleClick="membersDataGrid_MouseDoubleClick" HorizontalScrollBarVisibility="Auto" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" Grid.Row="5" x:Name="membersDataGrid" SelectionChanged="membersDataGrid_SelectionChanged">
                     <DataGrid.Columns>
                         <DataGridCheckBoxColumn CanUserResize="False" Width="auto" ElementStyle="{StaticResource CheckBoxStyle1}">
                             <DataGridCheckBoxColumn.HeaderTemplate>
@@ -235,9 +235,9 @@
                         </DataGridTemplateColumn>-->
 
                         <DataGridTextColumn Header="N дог." IsReadOnly="True" Width="auto" Binding="{Binding numberAgreement}"/>
-                        <DataGridTextColumn Header="Дата договора" IsReadOnly="True" Width="120" Binding="{Binding dateAgreement, StringFormat=dd-mm-yyyy}"/>
-                        <DataGridTextColumn Header="Срок действия" IsReadOnly="True" Width="120" Binding="{Binding dateSrokAgreement, StringFormat=dd-mm-yyyy}"/>
-                        <DataGridTextColumn Header="Дата завершения" IsReadOnly="True" Width="130" Binding="{Binding dateEndAgreement, StringFormat=dd-mm-yyyy}"/>
+                        <DataGridTextColumn Header="Дата договора" IsReadOnly="True" Width="120" Binding="{Binding dateAgreement, StringFormat=dd-MM-yyyy}"/>
+                        <DataGridTextColumn Header="Срок действия" IsReadOnly="True" Width="120" Binding="{Binding dateSrokAgreement, StringFormat=dd-MM-yyyy}"/>
+                        <DataGridTextColumn Header="Дата завершения" IsReadOnly="True" Width="130" Binding="{Binding dateEndAgreement, StringFormat=dd-MM-yyyy}"/>
                         <DataGridTextColumn Header="Наименование контрагента" IsReadOnly="True" Width="auto" Binding="{Binding nameAgreement}"/>
                         <DataGridTextColumn Header="Страна" IsReadOnly="True" Width="auto" Binding="{Binding countryAgreement}"/>
                         <DataGridTextColumn Header="Область" IsReadOnly="True" Width="auto" Binding="{Binding areaAgreement}"/>
@@ -258,7 +258,7 @@
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <Button Style="{StaticResource gridEditButton}">
+                                        <Button Style="{StaticResource gridEditButton}" Click="RedactAgreement_Click">
                                             <Button.Content>
                                                 <fa:IconBlock Icon="Pencil" Width="16" Height="16" VerticalAlignment="Center"/>
                                             </Button.Content>

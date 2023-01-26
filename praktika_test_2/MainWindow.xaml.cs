@@ -41,9 +41,12 @@ namespace praktika_test_2
                 //db.SaveChanges();
 
                 Agreement = db.Agreement.ToList();
-                Agreement[0].areaAgreement = "fdsfd";
                 membersDataGrid.ItemsSource = Agreement;
             }
+        }
+        public int GetSelectIndex()
+        {
+            return membersDataGrid.SelectedIndex;
         }
 
         public void AddAgreement(Agreement agreement)
@@ -51,53 +54,82 @@ namespace praktika_test_2
             Agreement.Add(agreement);
             membersDataGrid.Items.Refresh();
         }
+        public void UpdateAgreement(Agreement agreement)
+        {
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                Agreement[membersDataGrid.SelectedIndex] = agreement;
+                db.Agreement.Update(agreement);
+                db.SaveChanges();
+                membersDataGrid.Items.Refresh();
+            }
+        }
+
+        public void RedactAgreement(Agreement agreement)
+        {
+            addAgreement addAgreement = new addAgreement();
+            addAgreement.Show();
+            addAgreement.GetRedactAgreement(agreement);
+            //var a = viewingAgreement_win.SelectIndex;
+            //var b = ((viewingAgreement)System.Windows.Application.Current.viewingAgreement).SelectIndex;
+            //MessageBox.Show(membersDataGrid.SelectedIndex.ToString());
+        }
+
+        private void CancelAgreement_Click(object sender, RoutedEventArgs e) => Close();
+
+        private void No_Click(object sender, RoutedEventArgs e) => MessageBox.Show("Доступ запрещён");
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.ChangedButton==MouseButton.Left) 
-            { 
-                this.DragMove();
-            }
+            //if (e.ChangedButton==MouseButton.Left) 
+            //{ 
+            //    this.DragMove();
+            //}
         }
 
         bool IsMaximized = false;
 
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.ClickCount == 2)
-            {
-                if (this.IsMaximized)
-                {
-                    this.WindowState = WindowState.Normal;
-                    this.Width = 1280;
-                    this.Height = 780;
+            //if (e.ClickCount == 2)
+            //{
+            //    if (this.IsMaximized)
+            //    {
+            //        this.WindowState = WindowState.Normal;
+            //        this.Width = 1280;
+            //        this.Height = 780;
 
-                    this.IsMaximized = false;
-                }
-                else
-                {
-                    this.WindowState= WindowState.Maximized;
+            //        this.IsMaximized = false;
+            //    }
+            //    else
+            //    {
+            //        this.WindowState= WindowState.Maximized;
 
-                    this.IsMaximized = true;
-                }
-            }
+            //        this.IsMaximized = true;
+            //    }
+            //}
         }
 
         private void AddAgreement_Click(object sender, RoutedEventArgs e)
         {
             addAgreement addAgreement = new addAgreement();
-            //MessageBox.Show(IsWindowOpen<Window>("addAgreement").ToString());
             addAgreement.Show();
-            //if (!IsWindowOpen<Window>("addAgreement"))
-            //{
-            //    addAgreement.Show();
-            //}
-
-            //if (addAgreement == null && addAgreement.Visibility != Visibility.Visible)
-            //{
-            //    addAgreement.Show();
-            //}
-            //MessageBox.Show("работает");
+        }
+        public void DeleteAgreement(Agreement select_agreement)
+        {
+            Agreement.Remove((Agreement)select_agreement);
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                //Удаление
+                db.Agreement.Remove((Agreement)select_agreement);
+                db.SaveChanges();
+            }
+            membersDataGrid.Items.Refresh();
+        }
+        private void RedactAgreement_Click(object sender, RoutedEventArgs e)
+        {
+            int selectIndex = GetSelectIndex();
+            RedactAgreement(Agreement[selectIndex]);
         }
 
         private void DeleteAgreement_Click(object sender, RoutedEventArgs e)
@@ -116,6 +148,12 @@ namespace praktika_test_2
         private void membersDataGrid_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void membersDataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            viewingAgreement viewingAgreement_win = new viewingAgreement();
+            viewingAgreement_win.Show();
         }
     }
 

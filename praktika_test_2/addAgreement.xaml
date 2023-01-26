@@ -68,7 +68,7 @@
             <!--Page Title-->
             <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" Background="#2247bf" CornerRadius="20 20 0 0">
                 <StackPanel>
-                    <TextBlock Text="Добавление договора" Foreground="White" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2" FontSize="20" FontWeight="SemiBold" Margin="30 0 0 0"
+                    <TextBlock x:Name="addAgreementTextTitle" Text="Добавление договора" Foreground="White" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2" FontSize="20" FontWeight="SemiBold" Margin="30 0 0 0"
                            HorizontalAlignment="Left"/>
                     <Button  Grid.Row="0" Grid.Column="5" Style="{StaticResource topButton}" Click="CancelAgreement_Click" Margin="0 -30 23 0" VerticalAlignment="Center" HorizontalAlignment="Right">
                         <fa:IconBlock Icon="Xmark" Foreground="White" VerticalAlignment="Center" FontSize="26"/>
@@ -165,7 +165,7 @@
                 </StackPanel>
             </Button>
             <!--Cancel Button-->
-            <Button Margin="0 0 30 0" Width="115" Grid.Column="4" Grid.Row="6" Style="{StaticResource addButton}" Click="SaveAgreement_Click">
+            <Button x:Name="SaveAgreement" Margin="0 0 30 0" Width="115" Grid.Column="4" Grid.Row="6" Style="{StaticResource addButton}" Click="SaveAgreement_Click">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Сохранить"/>
                 </StackPanel>

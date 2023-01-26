@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:praktika_test_2"
         mc:Ignorable="d"
         AllowsTransparency="True"
-         WindowStyle="None"
+        WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         Title="Просмотр договора" 
         Height="390" Width="800"

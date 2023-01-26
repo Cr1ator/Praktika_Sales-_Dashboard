@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
 
 namespace praktika_test_2
 {
@@ -24,6 +25,12 @@ namespace praktika_test_2
         public addAgreement()
         {
             InitializeComponent();
+        }
+
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
 
         public void GetRedactAgreement(Agreement agreement)
@@ -139,8 +146,6 @@ namespace praktika_test_2
 
         private void UpdateAgreement_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Изменения сохранены");
-
             //Получить значения полей
             var codeAgreement = ((MyTextBox)this.FindName("CodeAgreement")).textBox.Text;
             var numberAgreement = ((MyTextBox)this.FindName("NumberAgreement")).textBox.Text;
@@ -174,37 +179,38 @@ namespace praktika_test_2
             DateTime _dateEndAgreement_utc = DateTime.SpecifyKind(_dateEndAgreement.Value, DateTimeKind.Utc);
 
 
-            Agreement agreement = new Agreement
-            {
-                codeAgreement = Convert.ToInt32(codeAgreement),
-                numberAgreement = Convert.ToInt32(numberAgreement),
-                dateAgreement = _dateAgreement_utc,
-                dateSrokAgreement = _dateSrokAgreement_utc,
-                dateEndAgreement = _dateEndAgreement_utc,
-                nameAgreement = nameAgreement,
-                countryAgreement = countryAgreement,
-                areaAgreement = areaAgreement,
-                typeAgreement = typeAgreement,
-                relationshipsAgreement = relationshipsAgreement,
-                statusMMZAgreement = statusMMZAgreement,
-                statusAgreement = statusAgreement,
-                sumAgreement = Convert.ToInt32(sumAgreement),
-                countsAgreement = Convert.ToInt32(countsAgreement),
-                sumTransAgreement = Convert.ToInt32(sumTransAgreement),
-                nameProduct = nameProduct,
-                typePayement = Convert.ToInt32(typePayement),
-                dayDatePayement = Convert.ToInt32(datePayement),
-                dayAgreement = Convert.ToInt32(dayAgreement),
-                dayDateOfShipment = Convert.ToInt32(dateOfShipment)
-            };
-
             try
             {
+                Agreement agreement = new Agreement
+                {
+                    codeAgreement = Convert.ToInt32(codeAgreement),
+                    numberAgreement = Convert.ToInt32(numberAgreement),
+                    dateAgreement = _dateAgreement_utc,
+                    dateSrokAgreement = _dateSrokAgreement_utc,
+                    dateEndAgreement = _dateEndAgreement_utc,
+                    nameAgreement = nameAgreement,
+                    countryAgreement = countryAgreement,
+                    areaAgreement = areaAgreement,
+                    typeAgreement = typeAgreement,
+                    relationshipsAgreement = relationshipsAgreement,
+                    statusMMZAgreement = statusMMZAgreement,
+                    statusAgreement = statusAgreement,
+                    sumAgreement = Convert.ToInt32(sumAgreement),
+                    countsAgreement = Convert.ToInt32(countsAgreement),
+                    sumTransAgreement = Convert.ToInt32(sumTransAgreement),
+                    nameProduct = nameProduct,
+                    typePayement = Convert.ToInt32(typePayement),
+                    dayDatePayement = Convert.ToInt32(datePayement),
+                    dayAgreement = Convert.ToInt32(dayAgreement),
+                    dayDateOfShipment = Convert.ToInt32(dateOfShipment)
+                };
+
                 ((MainWindow)System.Windows.Application.Current.MainWindow).UpdateAgreement(agreement);
+                MessageBox.Show("Изменения сохранены");
             }
             catch
             {
-
+                MessageBox.Show("Неверные значения");
             }
         }
 

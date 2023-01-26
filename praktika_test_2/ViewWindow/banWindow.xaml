@@ -1,0 +1,37 @@
+﻿<Window x:Class="praktika_test_2.ViewWindow.banWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:praktika_test_2.ViewWindow"
+    mc:Ignorable="d"
+    AllowsTransparency="True"
+    WindowStyle="None"
+    WindowStartupLocation="CenterScreen"
+    Title="Ошибка" 
+    Height="110" Width="280"
+    Background="Transparent">
+    <Border CornerRadius="15" BorderThickness="2" BorderBrush="#2247bf" Background="White" MouseDown="Border_MouseDown">
+        <StackPanel>
+            <StackPanel>
+                <Border VerticalAlignment="Top" Height="20" CornerRadius="20 20 0 0">
+                    <StackPanel>
+                        <Button  Style="{StaticResource topButton}" Click="CancelAgreement_Click" Margin="0 -5 5 0" VerticalAlignment="Center" HorizontalAlignment="Right">
+                            <fa:IconBlock Icon="Xmark" Foreground="Black"  FontSize="20"/>
+                        </Button>
+                        <Button  Style="{StaticResource topButton}" Click="hideAgreement_Click" Margin="0 -30 25 0" VerticalAlignment="Center" HorizontalAlignment="Right">
+                            <fa:IconBlock Icon="Minus" Foreground="Black" FontSize="20"/>
+                        </Button>
+                    </StackPanel>
+                </Border>
+                <!--Seprator-->
+                <Separator Height="1" Background="#dae2ea" Margin="0 0 0 10"/>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Доступ запрещён" Foreground="Black" FontSize="24" FontWeight="SemiBold" Margin="0 16 0 0"
+                   VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</Window>

@@ -51,8 +51,4 @@
     </Resource>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ViewWindow\" />
-  </ItemGroup>
-
 </Project>

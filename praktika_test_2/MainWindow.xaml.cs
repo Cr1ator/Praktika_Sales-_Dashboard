@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic.ApplicationServices;
+using praktika_test_2.ViewWindow;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -77,7 +78,11 @@ namespace praktika_test_2
 
         private void CancelAgreement_Click(object sender, RoutedEventArgs e) => Close();
 
-        private void No_Click(object sender, RoutedEventArgs e) => MessageBox.Show("Доступ запрещён");
+        private void No_Click(object sender, RoutedEventArgs e)
+        {
+            banWindow bW = new banWindow();
+            bW.ShowDialog();
+        }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {

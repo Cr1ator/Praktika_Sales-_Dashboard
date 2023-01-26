@@ -116,8 +116,8 @@
             <TextBox Grid.Row="1" Grid.Column="4" Margin="20,0,20,0" VerticalAlignment="Center"/>-->
             
             <!--Inputs-->
-            <uc:MyTextBox Margin="20 0 0 0" Grid.Column="0" Grid.Row="1" x:Name="CodeAgreement" Caption="Legal Name of Business" Hint="Код контрагента"/>
-            <uc:MyTextBox Grid.Column="1" Grid.Row="1" x:Name="NumberAgreement" Caption="Notification Email" Hint="№ договора"/>
+            <uc:MyTextBox Margin="20 0 0 0" Grid.Column="0" Grid.Row="1" x:Name="CodeAgreement" PreviewTextInput="NumberValidationTextBox" Caption="Legal Name of Business" Hint="Код контрагента"/>
+            <uc:MyTextBox Grid.Column="1" Grid.Row="1" x:Name="NumberAgreement" PreviewTextInput="NumberValidationTextBox" Caption="Notification Email" Hint="№ договора"/>
             <!--<uc:MyTextBox Grid.Column="2" Grid.Row="1" Caption="Phone" Hint="Дата договора"/>-->
             <!--<uc:MyTextBox Grid.Column="3" Grid.Row="1" Caption="Address (Line 1)" Hint="Срок действия"/>
             <uc:MyTextBox Grid.Column="4" Grid.Row="1" Caption="Business Name" Hint="Дата заврешения"/>-->
@@ -140,15 +140,15 @@
             <uc:MyTextBox x:Name="StatusMMZAgreement" Grid.Column="2" Grid.Row="3" Caption="Notification Email" Hint="Статус ММЗ"/>
             <uc:MyTextBox x:Name="StatusAgreement" Margin="0 0 20 0" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="3" Caption="Notification Email" Hint="Статус Контрагента"/>
             <!--Inputs 4-->
-            <uc:MyTextBox x:Name="SumAgreement" Margin="20 0 0 0" Grid.Column="0" Grid.Row="4" Caption="Legal Name of Business" Hint="Сумма договора"/>
-            <uc:MyTextBox x:Name="CountsAgreement" Grid.Column="1" Grid.Row="4" Caption="Notification Email" Hint="Кол-во"/>
-            <uc:MyTextBox x:Name="SumTransAgreement" Grid.Column="2" Grid.Row="4" Caption="Notification Email" Hint="Сумма трансп.расх"/>
+            <uc:MyTextBox x:Name="SumAgreement"  PreviewTextInput="NumberValidationTextBox" Margin="20 0 0 0" Grid.Column="0" Grid.Row="4" Caption="Legal Name of Business" Hint="Сумма договора"/>
+            <uc:MyTextBox x:Name="CountsAgreement" PreviewTextInput="NumberValidationTextBox" Grid.Column="1" Grid.Row="4" Caption="Notification Email" Hint="Кол-во"/>
+            <uc:MyTextBox x:Name="SumTransAgreement" PreviewTextInput="NumberValidationTextBox" Grid.Column="2" Grid.Row="4" Caption="Notification Email" Hint="Сумма трансп.расх"/>
             <uc:MyTextBox x:Name="NameProduct" Margin="0 0 20 0" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="4" Caption="Notification Email" Hint="Полученная продукция"/>
             <!--Inputs 5-->
-            <uc:MyTextBox x:Name="TypePayement" Margin="20 0 0 0" Grid.Column="0" Grid.Row="5" Caption="Legal Name of Business" Hint="Вид оплаты"/>
-            <uc:MyTextBox x:Name="DatePayement" Grid.Column="1" Grid.Row="5" Caption="Notification Email" Hint="Срок оплаты"/>
-            <uc:MyTextBox x:Name="DayAgreement" Grid.Column="2" Grid.Row="5" Caption="Notification Email" Hint="Дни"/>
-            <uc:MyTextBox x:Name="DateOfShipment" Margin="0 0 20 0" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="5" Caption="Notification Email" Hint="Срок откгрузки"/>
+            <uc:MyTextBox x:Name="TypePayement" PreviewTextInput="NumberValidationTextBox" Margin="20 0 0 0" Grid.Column="0" Grid.Row="5" Caption="Legal Name of Business" Hint="Вид оплаты"/>
+            <uc:MyTextBox x:Name="DatePayement" PreviewTextInput="NumberValidationTextBox" Grid.Column="1" Grid.Row="5" Caption="Notification Email" Hint="Срок оплаты"/>
+            <uc:MyTextBox x:Name="DayAgreement" PreviewTextInput="NumberValidationTextBox" Grid.Column="2" Grid.Row="5" Caption="Notification Email" Hint="Дни"/>
+            <uc:MyTextBox x:Name="DateOfShipment" PreviewTextInput="NumberValidationTextBox" Margin="0 0 20 0" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="5" Caption="Notification Email" Hint="Срок откгрузки"/>
             <!--Seprator-->
             <Separator Height="1" Grid.Row="6" Grid.ColumnSpan="6" Background="#dae2ea" Margin="0 -50 0 10"/>
             <!--Buttons 5-->

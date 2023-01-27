@@ -20,9 +20,6 @@
                         <Button  Style="{StaticResource topButton}" Click="CancelAgreement_Click" Margin="0 -5 5 0" VerticalAlignment="Center" HorizontalAlignment="Right">
                             <fa:IconBlock Icon="Xmark" Foreground="Black"  FontSize="20"/>
                         </Button>
-                        <Button  Style="{StaticResource topButton}" Click="hideAgreement_Click" Margin="0 -30 25 0" VerticalAlignment="Center" HorizontalAlignment="Right">
-                            <fa:IconBlock Icon="Minus" Foreground="Black" FontSize="20"/>
-                        </Button>
                     </StackPanel>
                 </Border>
                 <!--Seprator-->

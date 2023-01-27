@@ -222,10 +222,7 @@ namespace praktika_test_2
 
         private void TestAgreement_Click(object sender, RoutedEventArgs e)
         {
-            //if (e.ChangedButton == MouseButton.Left)
-            //{
-            //    this.DragMove();
-            //}
+
         }
     }
 }

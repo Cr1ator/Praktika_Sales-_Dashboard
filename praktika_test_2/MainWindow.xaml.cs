@@ -7,6 +7,7 @@ using System.Collections.Specialized;
 using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -32,15 +33,6 @@ namespace praktika_test_2
 
             using (ApplicationContext db = new ApplicationContext())
             {
-
-                // создаем два объекта User
-                //User user1 = new User { Name = "Tom", Age = 33 };
-                //User user2 = new User { Name = "Alice", Age = 26 };
-
-                // добавляем их в бд
-                //db.Users.AddRange(user1, user2);
-                //db.SaveChanges();
-
                 Agreement = db.Agreement.ToList();
                 membersDataGrid.ItemsSource = Agreement;
             }
@@ -48,6 +40,25 @@ namespace praktika_test_2
         public int GetSelectIndex()
         {
             return membersDataGrid.SelectedIndex;
+        }
+
+        //Поск
+        private void textBoxSearch_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            var filtered = Agreement.Where(agreement => agreement.nameAgreement.StartsWith(textBoxSearch.Text)
+                                            || agreement.codeAgreement.ToString().StartsWith(textBoxSearch.Text) 
+                                            || agreement.numberAgreement.ToString().StartsWith(textBoxSearch.Text) 
+                                            || agreement.nameAgreement.StartsWith(textBoxSearch.Text) 
+                                            || agreement.countryAgreement.StartsWith(textBoxSearch.Text) 
+                                            || agreement.areaAgreement.StartsWith(textBoxSearch.Text) 
+                                            || agreement.typeAgreement.StartsWith(textBoxSearch.Text) 
+                                            || agreement.relationshipsAgreement.StartsWith(textBoxSearch.Text) 
+                                            || agreement.statusMMZAgreement.StartsWith(textBoxSearch.Text) 
+                                            || agreement.statusAgreement.StartsWith(textBoxSearch.Text) 
+                                            || agreement.sumAgreement.ToString().StartsWith(textBoxSearch.Text) 
+                                            || agreement.nameProduct.StartsWith(textBoxSearch.Text) 
+                                            || agreement.dayDateOfShipment.ToString().StartsWith(textBoxSearch.Text));
+            membersDataGrid.ItemsSource = filtered;
         }
 
         public void AddAgreement(Agreement agreement)
@@ -71,9 +82,6 @@ namespace praktika_test_2
             addAgreement addAgreement = new addAgreement();
             addAgreement.Show();
             addAgreement.GetRedactAgreement(agreement);
-            //var a = viewingAgreement_win.SelectIndex;
-            //var b = ((viewingAgreement)System.Windows.Application.Current.viewingAgreement).SelectIndex;
-            //MessageBox.Show(membersDataGrid.SelectedIndex.ToString());
         }
 
         private void CancelAgreement_Click(object sender, RoutedEventArgs e) => Close();
@@ -86,33 +94,33 @@ namespace praktika_test_2
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            //if (e.ChangedButton==MouseButton.Left) 
-            //{ 
-            //    this.DragMove();
-            //}
+            if (e.ChangedButton==MouseButton.Left) 
+            { 
+                this.DragMove();
+            }
         }
 
         bool IsMaximized = false;
 
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            //if (e.ClickCount == 2)
-            //{
-            //    if (this.IsMaximized)
-            //    {
-            //        this.WindowState = WindowState.Normal;
-            //        this.Width = 1280;
-            //        this.Height = 780;
+            if (e.ClickCount == 3)
+            {
+                if (this.IsMaximized)
+                {
+                    this.WindowState = WindowState.Normal;
+                    this.Width = 1280;
+                    this.Height = 780;
 
-            //        this.IsMaximized = false;
-            //    }
-            //    else
-            //    {
-            //        this.WindowState= WindowState.Maximized;
+                    this.IsMaximized = false;
+                }
+                else
+                {
+                    this.WindowState = WindowState.Maximized;
 
-            //        this.IsMaximized = true;
-            //    }
-            //}
+                    this.IsMaximized = true;
+                }
+            }
         }
 
         private void AddAgreement_Click(object sender, RoutedEventArgs e)

@@ -59,7 +59,6 @@ namespace praktika_test_2
                 dayDatePayement.Text = agreement[SelectIndex].dayDatePayement.ToString();
                 dayAgreement.Text = agreement[SelectIndex].dayAgreement.ToString();
                 dayDateOfShipment.Text = agreement[SelectIndex].dayDateOfShipment.ToString();
-                //MessageBox.Show(agreement[selectIndex].codeAgreement.ToString());
             }
             catch
             {

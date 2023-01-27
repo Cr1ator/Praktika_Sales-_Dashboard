@@ -145,7 +145,7 @@
                                        Text="Поиск..." IsHitTestVisible="False"
                                        Visibility="{Binding ElementName=textBoxSearch,Path=Text.IsEmpty, Converter={StaticResource boolToVisConv}}"/>
 
-                        <TextBox x:Name="textBoxSearch" Style="{StaticResource searchTextBox}"/>
+                        <TextBox x:Name="textBoxSearch" Style="{StaticResource searchTextBox}" KeyUp="textBoxSearch_KeyUp"/>
 
                         <fa:IconBlock Icon="Search" Width="24" Height="24" FontSize="24" Foreground="#2247bf" Margin="0 0 15 0"
                                           HorizontalAlignment="Right" VerticalAlignment="Center"/>
@@ -279,7 +279,7 @@
                 <!--Pagination Section-->
                 <Border Grid.Row="6" HorizontalAlignment="Right" BorderBrush="#dee4ec" BorderThickness="1"
                         CornerRadius="5" Padding="5" Background="White" Margin="0 10 10 10">
-                    <StackPanel Orientation="Horizontal">
+                    <!--<StackPanel Orientation="Horizontal">
                         <Button Style="{StaticResource pagingButton}">
                             <fa:IconBlock Icon="CaretLeft" VerticalAlignment="Center" Width="14" Height="12"/>
                         </Button>
@@ -301,7 +301,7 @@
                             <fa:IconBlock Icon="CaretRight" VerticalAlignment="Center" Width="14" Height="12"/>
                         </Button>
 
-                    </StackPanel>
+                    </StackPanel>-->
                 </Border>
 
             </Grid>
